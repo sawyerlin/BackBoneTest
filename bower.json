@@ -15,5 +15,11 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "backbone": "~1.2.3",
+    "requirejs": "~2.1.20",
+    "jquery": "~2.1.4",
+    "loglevel": "~1.4.0"
+  }
 }
