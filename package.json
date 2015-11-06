@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node_modules/http-server/bin/http-server assets"
   },
   "repository": {
     "type": "git",
@@ -14,5 +15,8 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/sawyerlin/BackBoneTest/issues"
+  },
+  "devDependencies": {
+    "http-server": "~0.8.5"
   }
 }
