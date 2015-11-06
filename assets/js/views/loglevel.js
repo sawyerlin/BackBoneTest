@@ -61,13 +61,13 @@ define(function(require) {
             originalFactory = serverLog.methodFactory;
             serverLog.methodFactory = function(methodName, logLevel, loggerName) {
                 var rawMethod = originalFactory(methodName, logLevel, loggerName);
-                return function (message) {
+                return function (service, message) {
                     if (methodName === 'info' || methodName === 'error') {
                         $.ajax({
                             type: 'POST',
                             dataType: 'json',
                             url: logServer + methodName,
-                            data: {'service': 'TESTSERVICE', 'msg': 'TESTMESSAGE'}
+                            data: {'service': service, 'msg': message}
                         })
                         .done(function(data) {
                             console.log(data);
@@ -82,11 +82,11 @@ define(function(require) {
             serverLog.setLevel(level);
         },
         startserver: function() {
-            serverLog.trace('trace log');
-            serverLog.debug('debug log');
-            serverLog.info('info log');
-            serverLog.warn('warn log');
-            serverLog.error('error log');
+            serverLog.trace('TestService', 'trace log');
+            serverLog.debug('TestService', 'debug log');
+            serverLog.info('TestService', 'info log');
+            serverLog.warn('TestService', 'warn log');
+            serverLog.error('TestService', 'error log');
         },
         render: function() {
             this.$el.html(template);
