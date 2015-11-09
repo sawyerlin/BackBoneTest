@@ -6,6 +6,15 @@ define(function(require) {
         template = require('text!templates/loglevel.html'),
         level = 'warn',
         logServer = 'http://canalplay-orange.hubee.tv/log/generic/';
+
+    var originalFactory = loglevel.methodFactory;
+    loglevel.methodFactory = function(methodName, logLevel, loggerName) {
+        var rawMethod = originalFactory(methodName, logLevel, loggerName);
+        return function(message) {
+            rawMethod('Newsflash: ' + message);
+        };
+    };
+
     var localLog = loglevel.getLogger('local'),
         htmlLog = loglevel.getLogger('html'),
         serverLog = loglevel.getLogger('server');
