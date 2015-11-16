@@ -3,8 +3,7 @@ define(function(require) {
 
     var $ = require('jquery'),
         _ = require('underscore'),
-        Backbone = require('backbone'),
-        loglevel = require('loglevel');
+        Backbone = require('backbone');
 
     return Backbone.View.extend({
         el: 'body',

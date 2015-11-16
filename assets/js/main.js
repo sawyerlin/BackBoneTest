@@ -4,6 +4,7 @@ require.config({
         underscore: 'libs/underscore',
         text: 'libs/text',
         backbone: 'libs/backbone',
+        backboneretryslin: 'libs/backbone-retryslin',
         loglevel: 'libs/loglevel',
         templates: '../templates'
     }
